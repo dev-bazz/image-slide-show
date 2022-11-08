@@ -1,1 +1,3 @@
-# this is a test
+# Description
+
+This is a simple slide show application

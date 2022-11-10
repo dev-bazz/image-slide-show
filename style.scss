@@ -1,3 +1,22 @@
 @use "./functions" as *;
 
+.carousel {
+        position: relative;
+        height: pix-rem(700px);
+        width: min(80%, pix-rem(900px));
 
+        &__button {
+                all: unset;
+                &--left {
+                        @include svg();
+                }
+                &--right {
+                        @include svg();
+                }
+        }
+}
+
+.container{
+        width: min(100%, pix-rem(1140px) );
+        margin-inline: auto;
+}

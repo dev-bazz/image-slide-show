@@ -1,3 +1,33 @@
+.carousel {
+  position: relative;
+  height: 43.75em;
+  width: min(80%, 56.25em);
+}
+.carousel__button {
+  all: unset;
+}
+.carousel__button--left {
+  all: unset;
+}
+.carousel__button--left svg {
+  font-size: 1.5em;
+}
+.carousel__button--left .icon {
+  fill: black;
+}
+.carousel__button--right {
+  all: unset;
+}
+.carousel__button--right svg {
+  font-size: 1.5em;
+}
+.carousel__button--right .icon {
+  fill: black;
+}
 
+.container {
+  width: min(100%, 71.25em);
+  margin-inline: auto;
+}
 
 /*# sourceMappingURL=style.css.map */

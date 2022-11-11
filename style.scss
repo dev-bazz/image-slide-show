@@ -1,22 +1,67 @@
+@use "./reset";
 @use "./functions" as *;
 
 .carousel {
+        width: min(100%, pix-rem(700px));
+        margin: auto;
+        margin-top: pix-rem(80px);
         position: relative;
-        height: pix-rem(700px);
-        width: min(80%, pix-rem(900px));
-
+        & > .carousel__button {
+                visibility: hidden;
+        }
+        &:hover > .carousel__button {
+                visibility: visible;
+                transition: all 0.4s ease-in-out;
+        }
+        &__track {
+                text-align: center;
+                min-height: pix-rem(460px);
+                border-radius: pix-rem(8px);
+        }
+        &__slide {
+                position: absolute;
+                & > img {
+                        border-radius: pix-rem(8px);
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        -o-object-fit: fill;
+                        object-fit: fill;
+                }
+        }
         &__button {
                 all: unset;
+
                 &--left {
                         @include svg();
+                        left: pix-rem(8px);
                 }
                 &--right {
                         @include svg();
+                        right: pix-rem(8px);
+                }
+        }
+        &__nav {
+                display: flex;
+                justify-content: center;
+                gap: pix-rem(20px);
+                align-items: center;
+                padding-block: pix-rem(16px);
+        }
+        &__indicator {
+                all: unset;
+                background-color: rgba(0, 0, 0, 0.279);
+                aspect-ratio: 1/1;
+                width: pix-rem(20px);
+                -webkit-clip-path: circle();
+                clip-path: circle();
+                &.active {
+                        background-color: black;
                 }
         }
 }
 
-.container{
-        width: min(100%, pix-rem(1140px) );
+.container {
+        width: min(100%, pix-rem(1140px));
         margin-inline: auto;
 }

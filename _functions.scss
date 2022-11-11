@@ -1,15 +1,28 @@
-@function pix-rem($value, $suffix:em){
+@function pix-rem($value, $suffix: em) {
         $calculated: calc($value/16px);
-        @return #{$calculated}#{$suffix}
-
+        @return #{$calculated}#{$suffix};
 }
 
 @mixin svg() {
         all: unset;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: pix-rem(20px);
+        padding: pix-rem(8px );
+        cursor: pointer;
         svg {
                 font-size: pix-rem(24px);
         }
         .icon {
                 fill: black;
+                &:active{
+                        fill: lighten($color: #000000, $amount: 20);
+                }
         }
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        translate: 0 -50%;
 }

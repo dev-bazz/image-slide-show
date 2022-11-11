@@ -1,13 +1,124 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 .carousel {
+  width: min(100%, 43.75em);
+  margin: auto;
+  margin-top: 5em;
   position: relative;
-  height: 43.75em;
-  width: min(80%, 56.25em);
+}
+.carousel > .carousel__button {
+  visibility: hidden;
+}
+.carousel:hover > .carousel__button {
+  visibility: visible;
+  transition: all 0.4s ease-in-out;
+}
+.carousel__track {
+  text-align: center;
+  min-height: 28.75em;
+  border-radius: 0.5em;
+}
+.carousel__slide {
+  position: absolute;
+}
+.carousel__slide > img {
+  border-radius: 0.5em;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+  object-fit: fill;
 }
 .carousel__button {
   all: unset;
 }
 .carousel__button--left {
   all: unset;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.25em;
+  padding: 0.5em;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  translate: 0 -50%;
+  left: 0.5em;
 }
 .carousel__button--left svg {
   font-size: 1.5em;
@@ -15,14 +126,50 @@
 .carousel__button--left .icon {
   fill: black;
 }
+.carousel__button--left .icon:active {
+  fill: #333333;
+}
 .carousel__button--right {
   all: unset;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.25em;
+  padding: 0.5em;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  translate: 0 -50%;
+  right: 0.5em;
 }
 .carousel__button--right svg {
   font-size: 1.5em;
 }
 .carousel__button--right .icon {
   fill: black;
+}
+.carousel__button--right .icon:active {
+  fill: #333333;
+}
+.carousel__nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.25em;
+  align-items: center;
+  padding-block: 1em;
+}
+.carousel__indicator {
+  all: unset;
+  background-color: rgba(0, 0, 0, 0.279);
+  aspect-ratio: 1/1;
+  width: 1.25em;
+  -webkit-clip-path: circle();
+  clip-path: circle();
+}
+.carousel__indicator.active {
+  background-color: black;
 }
 
 .container {
